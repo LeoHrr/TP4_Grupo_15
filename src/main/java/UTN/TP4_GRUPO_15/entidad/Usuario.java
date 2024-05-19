@@ -2,27 +2,33 @@ package UTN.TP4_GRUPO_15.entidad;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Usuario")
 public class Usuario implements Serializable{
 
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
 	private String usuario;
-	private String contraseña;
+	@Column
+	private String contrasenia;
 	
-	public Usuario(String usuario, String contraseña) {
+	public Usuario(String usuario, String contrasenia) {
 		super();
 		this.usuario = usuario;
-		this.contraseña = contraseña;
+		this.contrasenia = contrasenia;
 	}
 
 	public Usuario() {
 		super();
 	}
-
+	
 	public String getUsuario() {
 		return usuario;
 	}
@@ -31,17 +37,17 @@ public class Usuario implements Serializable{
 		this.usuario = usuario;
 	}
 
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasenia() {
+		return contrasenia;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
 
 	@Override
 	public String toString() {
-		return "Usuario [usuario=" + usuario + ", contraseña=" + contraseña + "]";
+		return "Usuario [usuario=" + usuario + ", contraseña=" + contrasenia + "]";
 	}
 	
 	

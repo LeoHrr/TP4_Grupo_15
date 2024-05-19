@@ -2,11 +2,14 @@ package UTN.TP4_GRUPO_15.entidad;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -48,6 +51,10 @@ public class Medico implements Serializable{
 	@Column(name="telefono")
 	private String telefono;
 	
+	@OneToOne(cascade= {CascadeType.ALL})
+	@JoinColumn(name="usuario")
+	private Usuario usuario;
+	
 	/**
 	 * Constructores
 	**/
@@ -56,7 +63,7 @@ public class Medico implements Serializable{
 
 	}
 	
-	public Medico(String nombre, String apellido, String genero, String nac, String correo, String direccion, String localidad, String telefono) {
+	public Medico(String nombre, String apellido, String genero, String nac, String correo, String direccion, String localidad, String telefono, Usuario usuario) {
 
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -66,16 +73,25 @@ public class Medico implements Serializable{
 		this.localidad = localidad;
 		this.telefono = telefono;
 		this.correo = correo;
+		this.usuario = usuario;
 	}
 	
 	/**
 	 * Getters and Setters
 	**/
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 	public int getLegajo() {
 		return legajo;
 	}
-	
+
 	public String getNombre() {
 		return nombre;
 	}

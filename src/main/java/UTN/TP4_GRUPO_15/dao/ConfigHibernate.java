@@ -11,15 +11,20 @@ public class ConfigHibernate {
 	private SessionFactory sessionFactory;
 	private Session session;
 	
-	public ConfigHibernate(Class<?> entityClass) {
-		Configuration configuration = new Configuration();
-		configuration.configure();
-		ServiceRegistry serviceRegitry = new StandardServiceRegistryBuilder()
-											.applySettings(configuration.getProperties())
-											.build();
-		
-		sessionFactory = configuration.addAnnotatedClass(entityClass).buildSessionFactory(serviceRegitry);
-	}
+	public ConfigHibernate(Class<?>... entityClasses) {
+        Configuration configuration = new Configuration();
+        configuration.configure();
+
+        for (Class<?> entityClass : entityClasses) {
+            configuration.addAnnotatedClass(entityClass);
+        }
+
+        ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+                                            .applySettings(configuration.getProperties())
+                                            .build();
+
+        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+    }
 	
 	public Session openSession() {
 		session = sessionFactory.openSession();

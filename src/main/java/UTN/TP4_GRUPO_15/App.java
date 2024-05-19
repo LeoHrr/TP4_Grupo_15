@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import UTN.TP4_GRUPO_15.controllers.medicoController;
+import UTN.TP4_GRUPO_15.controllers.usuarioController;
 import UTN.TP4_GRUPO_15.entidad.Medico;
+import UTN.TP4_GRUPO_15.entidad.Usuario;
 
 /**
  * Hello world!
@@ -32,21 +34,47 @@ public class App
     	
     	case 1:
 
-    		String medico01 = new medicoController().create("Gonzalo", "Alderete", "Masculino", "12/02/1996", "gonzalo@prueba.com", "falsa 111", "Pacheco", "11-12229");	
-    		String medico02 = new medicoController().create("Gaston", "Argañaz", "Masculino", "01/06/1996", "gaston@prueba.com", "falsa 222", "Pacheco", "11-12229");
-    		String medico03 = new medicoController().create("Leonel", "Herrera", "Masculino", "30/12/2000", "leonel@prueba.com", "falsa 333", "Pacheco", "11-12229");
-    		String medico04 = new medicoController().create("Guido", "Romero", "Masculino", "11/02/2001", "guido@prueba.com", "falsa 444", "Pacheco", "11-12229");
-    		String medico05 = new medicoController().create("Walter", "Pizzo", "Masculino", "29/02/1998", "walter@prueba.com", "falsa 555", "Pacheco", "11-12229");
-    		String medico06 = new medicoController().create("Tamara", "Herrera", "Femenina", "14/05/2000", "tamara@prueba.com", "falsa 666", "Pacheco", "11-12229");
-    		String medico07 = new medicoController().create("Pepito", "Perez", "Masculino", "12/02/1996", "pepito@prueba.com", "falsa 777", "Pacheco", "11-12229");
-    		String medico08 = new medicoController().create("Pepita", "Perez", "Femenina", "04/04/1999", "pepita@prueba.com", "falsa 888", "Pacheco", "11-12229");
-    		String medico09 = new medicoController().create("Juan", "Diaz", "Masculino", "12/02/1996", "juan@prueba.com", "falsa 999", "Pacheco", "11-12229");
-    		String medico10 = new medicoController().create("Laura", "Morales", "Femenino", "02/12/2000", "laura@prueba.com", "falsa 321", "Pacheco", "11-12229");
+    		//Creación de usuarios
+    		Usuario usuario1 = new Usuario("UserGonzalo", "123");
+    		Usuario usuario2 = new Usuario("UserGaston", "123");
+    		Usuario usuario3 = new Usuario("UserLeonel", "123");
+    		Usuario usuario4 = new Usuario("UserGuido", "123");
+    		Usuario usuario5 = new Usuario("UserWalter", "123");
+    		Usuario usuario6 = new Usuario("UserTamara", "123");
+    		Usuario usuario7 = new Usuario("UserPepito", "123");
+    		Usuario usuario8 = new Usuario("UserPepita", "123");
+    		Usuario usuario9 = new Usuario("UserJuan", "123");
+    		Usuario usuario10 = new Usuario("UserLaura", "123");
+    		
+    		System.out.println(new usuarioController().create(usuario1));
+    		System.out.println(new usuarioController().create(usuario2));
+    		System.out.println(new usuarioController().create(usuario3));
+    		System.out.println(new usuarioController().create(usuario4));
+    		System.out.println(new usuarioController().create(usuario5));
+    		System.out.println(new usuarioController().create(usuario6));
+    		System.out.println(new usuarioController().create(usuario7));
+    		System.out.println(new usuarioController().create(usuario8));
+    		System.out.println(new usuarioController().create(usuario9));
+    		System.out.println(new usuarioController().create(usuario10));
+
+
+    		
+    		String medico01 = new medicoController().create("Gonzalo", "Alderete", "Masculino", "12/02/1996", "gonzalo@prueba.com", "falsa 111", "Pacheco", "11-12229", usuario1);	
+    		String medico02 = new medicoController().create("Gaston", "Argañaz", "Masculino", "01/06/1996", "gaston@prueba.com", "falsa 222", "Pacheco", "11-12229", usuario2);
+    		String medico03 = new medicoController().create("Leonel", "Herrera", "Masculino", "30/12/2000", "leonel@prueba.com", "falsa 333", "Pacheco", "11-12229", usuario3);
+    		String medico04 = new medicoController().create("Guido", "Romero", "Masculino", "11/02/2001", "guido@prueba.com", "falsa 444", "Pacheco", "11-12229", usuario4);
+    		String medico05 = new medicoController().create("Walter", "Pizzo", "Masculino", "29/02/1998", "walter@prueba.com", "falsa 555", "Pacheco", "11-12229", usuario5);
+    		String medico06 = new medicoController().create("Tamara", "Herrera", "Femenina", "14/05/2000", "tamara@prueba.com", "falsa 666", "Pacheco", "11-12229", usuario6);
+    		String medico07 = new medicoController().create("Pepito", "Perez", "Masculino", "12/02/1996", "pepito@prueba.com", "falsa 777", "Pacheco", "11-12229", usuario7);
+    		String medico08 = new medicoController().create("Pepita", "Perez", "Femenina", "04/04/1999", "pepita@prueba.com", "falsa 888", "Pacheco", "11-12229",usuario8);
+    		String medico09 = new medicoController().create("Juan", "Diaz", "Masculino", "12/02/1996", "juan@prueba.com", "falsa 999", "Pacheco", "11-12229", usuario9);
+    		String medico10 = new medicoController().create("Laura", "Morales", "Femenino", "02/12/2000", "laura@prueba.com", "falsa 321", "Pacheco", "11-12229", usuario10);
     		
     		break;
     		
     	case 2:
-    		Medico medicoUpdate = new Medico("Gonzalo", "Alderete", "Masculino", "12/02/1996", "gonzalo@prueba.com", "falsa 111", "Pacheco", "11-12229");
+    		Usuario usuario11 = new Usuario("Gonzalo", "123");
+    		Medico medicoUpdate = new Medico("Gonzalo", "Alderete", "Masculino", "12/02/1996", "gonzalo@prueba.com", "falsa 111", "Pacheco", "11-12229", usuario11);
     		medicoUpdate.setLegajo(1);
     		String updateMedcio = new medicoController().update(medicoUpdate);
     		
