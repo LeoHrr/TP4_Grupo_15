@@ -5,18 +5,19 @@ import java.util.List;
 import org.hibernate.Session;
 
 import UTN.TP4_GRUPO_15.dao.ConfigHibernate;
+import UTN.TP4_GRUPO_15.entidad.Especialidad;
 import UTN.TP4_GRUPO_15.entidad.Medico;
 import UTN.TP4_GRUPO_15.entidad.Usuario;
 
 public class medicoController {
 	
-	public String create(String nombre, String apellido, String genero, String nac, String correo, String direccion, String localidad, String telefono, Usuario usuario)
+	public String create(String nombre, String apellido, String genero, String nac, String correo, String direccion, String localidad, String telefono, Usuario usuario, Especialidad especialidad)
 	{
 		
 		try
 		{
-			Medico medico = new Medico(nombre, apellido, genero, nac, correo, direccion, localidad, telefono, usuario);
-			ConfigHibernate ch = new ConfigHibernate(Medico.class, Usuario.class);
+			Medico medico = new Medico(nombre, apellido, genero, nac, correo, direccion, localidad, telefono, usuario, especialidad);
+			ConfigHibernate ch = new ConfigHibernate(Medico.class, Usuario.class, Especialidad.class);
 			Session session = ch.openSession();
 			
 			session.beginTransaction();

@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -55,6 +56,10 @@ public class Medico implements Serializable{
 	@JoinColumn(name="usuario")
 	private Usuario usuario;
 	
+	@ManyToOne(cascade= {CascadeType.ALL})
+	@JoinColumn(name="id_especialidad")
+	private Especialidad especialidad;
+	
 	/**
 	 * Constructores
 	**/
@@ -63,19 +68,22 @@ public class Medico implements Serializable{
 
 	}
 	
-	public Medico(String nombre, String apellido, String genero, String nac, String correo, String direccion, String localidad, String telefono, Usuario usuario) {
-
+	public Medico(String nombre, String apellido, String genero, String nac, String correo,
+			String direccion, String localidad, String telefono, Usuario usuario, Especialidad especialidad) {
+		super();
+		this.legajo = legajo;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.genero = genero;
 		this.nac = nac;
+		this.correo = correo;
 		this.direccion = direccion;
 		this.localidad = localidad;
 		this.telefono = telefono;
-		this.correo = correo;
 		this.usuario = usuario;
+		this.especialidad = especialidad;
 	}
-	
+
 	/**
 	 * Getters and Setters
 	**/
@@ -88,6 +96,16 @@ public class Medico implements Serializable{
 		this.usuario = usuario;
 	}
 	
+	
+	public Especialidad getId() {
+		return especialidad;
+	}
+
+	public void setId(Especialidad id) {
+		this.especialidad = id;
+	}
+
+
 	public int getLegajo() {
 		return legajo;
 	}
