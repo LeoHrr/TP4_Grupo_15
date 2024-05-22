@@ -13,6 +13,8 @@
         <property name="hbm2ddl.auto">update</property> 
         <mapping class="UTN.TP4_GRUPO_15.entidad.Usuario"/> 
         <mapping class="UTN.TP4_GRUPO_15.entidad.Medico"/> 
-        <mapping class="UTN.TP4_GRUPO_15.entidad.Especialidad"/> 
+        <mapping class="UTN.TP4_GRUPO_15.entidad.Especialidad"/>
+        <mapping class="UTN.TP4_GRUPO_15.entidad.Turno"/>  
+        <mapping class="UTN.TP4_GRUPO_15.entidad.Paciente"/>  
     </session-factory>
 </hibernate-configuration>

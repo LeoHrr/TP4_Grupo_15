@@ -25,7 +25,7 @@ public class Medico implements Serializable{
 
 	@Id
 	@Column(name="legajo")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int legajo;
 	
 	@Column(name="nombre")

@@ -1,31 +1,54 @@
 package UTN.TP4_GRUPO_15.entidad;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Paciente implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
+	@Column
 	private String nombre;
+	
+	@Column
 	private String apellido;
-	private int dni;
-	private int telefono;
+	
+	@Id
+	private String dni;
+	
+	@Column
+	private String telefono;
+	
+	@Column
 	private String direccion;
+	
+	@Column
 	private String localidad;
+	
+	@Column
 	private String provincia;
-	private Date fechaNacimiento;
+	
+	@Column
+	private LocalDate fechaNacimiento;
+	
+	@Column
 	private String Correo;
 	
+
 	public Paciente() {
 		super();
 	}
 
-	public Paciente(String nombre, String apellido, int dni, int telefono, String direccion, String localidad,
-			String provincia, Date fechaNacimiento, String correo) {
+	public Paciente(String nombre, String apellido, String dni, String telefono, String direccion, String localidad,
+			String provincia, LocalDate fechaNacimiento, String correo) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -54,19 +77,19 @@ public class Paciente implements Serializable{
 		this.apellido = apellido;
 	}
 
-	public int getDni() {
+	public String getDni() {
 		return dni;
 	}
 
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
@@ -94,11 +117,11 @@ public class Paciente implements Serializable{
 		this.provincia = provincia;
 	}
 
-	public Date getFechaNacimiento() {
+	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 

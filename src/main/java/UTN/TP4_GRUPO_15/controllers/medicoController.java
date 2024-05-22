@@ -11,12 +11,11 @@ import UTN.TP4_GRUPO_15.entidad.Usuario;
 
 public class medicoController {
 	
-	public String create(String nombre, String apellido, String genero, String nac, String correo, String direccion, String localidad, String telefono, Usuario usuario, Especialidad especialidad)
+	public String create(Medico medico)
 	{
 		
 		try
 		{
-			Medico medico = new Medico(nombre, apellido, genero, nac, correo, direccion, localidad, telefono, usuario, especialidad);
 			ConfigHibernate ch = new ConfigHibernate(Medico.class, Usuario.class, Especialidad.class);
 			Session session = ch.openSession();
 			
